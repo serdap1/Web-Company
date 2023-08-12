@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--title-->
-    <title>ApeTech - App Landing Page Template</title>
+    <title>intX, jsc#blog-detail</title>
 
     <!--favicon icon-->
     <link rel="icon" th:href="@{/img/favicon.png}" type="image/png" sizes="16x16">
@@ -81,7 +81,7 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 <a class="navbar-brand page-scroll" th:href="@{/}">
-                                    <img src="img/logo.png" alt="logo">
+                                    <img th:src="@{/img/logo-mau-trang.png}" alt="logo" style="width: 100px; height: 50px;">
                                 </a>
                             </div>
 
@@ -89,7 +89,7 @@
                             <div class="navbar-collapse collapse" id="myNavbar">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="active"><a class="page-scroll" th:href="@{/}">Home</a></li>
-                                    <li><a class="page-scroll" th:href="@{/}">Features</a></li>
+                                    <li><a class="page-scroll" th:href="@{/#features}">Features</a></li>
                                     <li><a class="page-scroll" th:href="@{/}">Pricing</a></li>
                                     <li><a class="page-scroll" th:href="@{/}">Faq</a></li>
                                     <li><a class="page-scroll" th:href="@{/}">News</a></li>
@@ -112,9 +112,7 @@
                         <div class="col-md-12">
                             <div class="text-center breadcrumb-content">
                                 <h2>Blog Details</h2>
-                                <p>Intrinsicly brand market-driven supply chains before tactical intellectual capital.
-                                    Collaboratively mesh effective relationships before granular products. Holisticly.
-                                </p>
+                                <p>Unveiling Tomorrow's Innovation Today.</p>
                                 <ul class="breadcrumb">
                                     <li><a th:href="@{/}">Home</a></li>
                                     <li>Blog Details</li>
@@ -134,7 +132,7 @@
                             <div class="col-md-8 col-md-offset-2" th:each="post: ${blog}">
                                 <div class="blog-single-content-wrap">
                                     <div class="blog-single-img">
-                                        <img src="img/blog-img2.jpg" alt="Blog single image" class="img-responsive">
+                                        <img th:src="@{/img/IT.jpg}" alt="Blog single image" class="img-responsive">
                                     </div>
                                     <h1 th:text="${post.title}"></h1>
                                     <div class="blog-details-post-meta">Posted <span th:text="${post.datestamp}"></span>
@@ -143,6 +141,8 @@
                                     <div class="blog-details-text">
 
                                         <p th:text="${post.detail}">Description</p>
+                                        
+
                                     </div>
                                     <div class="row">
                                         <!--start comments section-->
@@ -259,21 +259,15 @@
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
                                 <div class="footer-single-col text-center">
-                                    <img src="img/logo-color.png" alt="footer logo">
+                                    <img th:src="@{/img/logo-mau-tim-than.png}" alt="footer logo">
                                     <div class="footer-social-list">
                                         <ul class="list-inline">
-                                            <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="https://www.facebook.com/intXVietNam"> <i class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
                                             <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
                                             <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
                                             <li><a href="#"> <i class="fa fa-youtube"></i></a></li>
                                         </ul>
-                                    </div>
-                                    <div class="copyright-text">
-                                        <p>&copy; copyright <a href="#">ApeTech</a> Software Template By <a
-                                                href="https://themeforest.net/user/htmllover/portfolio"
-                                                target="_blank">HtmlLover</a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>

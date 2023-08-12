@@ -185,7 +185,7 @@ b, strong {
     -webkit-transform: translateY(-2px);
     transform: translateY(-2px);
 }
-
+/* fix code  */
 .softo-solid-btn {
     padding: 5px 30px;
     border: 2px solid #281483;
@@ -195,6 +195,7 @@ b, strong {
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
     letter-spacing: 0.5px;
+    margin-top: 12px;
 }
 
 .softo-solid-btn:hover {
@@ -990,6 +991,7 @@ SECTION MARGIN
     margin-top: 16px;
     border: 1px solid #fff;
     background-color: #fff;
+
 }
 
 .navbar .navbar-toggle .icon-bar,
@@ -2812,6 +2814,7 @@ SECTION MARGIN
 .faq-img {
     text-align: center;
     margin: 0 auto;
+    margin-top: 90px;
 }
 
 #accordion .panel {
@@ -3636,4 +3639,7 @@ p.form-message.error{
 
 .form-close{
     color: whitesmoke;
+}
+.logo{
+    margin-top: -14px;
 }
