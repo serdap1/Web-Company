@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--title-->
+    <title>ApeTech - App Landing Page Template</title>
+
+    <!--favicon icon-->
+    <link rel="icon" th:href="@{/img/favicon.png}" type="image/png" sizes="16x16">
+
+    <!-- font-awesome css -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+
+    <!--themify icon-->
+    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+
+    <!-- magnific popup css-->
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+
+    <!--owl carousel -->
+    <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet">
+    <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet">
+
+    <!-- bootstrap core css -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- custom css -->
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+    <!-- responsive css -->
+    <link th:href="@{/css/responsive.css}" rel="stylesheet">
+
+    <script th:src="@{/js/vendor/modernizr-2.8.1.min.js}"></script>
+    
+    <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/vendor/html5shim.js"></script>
+    <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="loader"></div>
+</div>
+<!--end preloader-->
+
+<div id="main" class="main-content-wraper">
+    <div class="main-content-inner">
+
+        <!--start header section-->
+        <header class="header">
+            <!--start navbar-->
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="navbar-header page-scroll">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                    data-target="#myNavbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand page-scroll" th:href="@{/}">
+                                <img src="img/logo.png" alt="logo">
+                            </a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="navbar-collapse collapse" id="myNavbar">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a class="page-scroll" th:href="@{/}">Home</a></li>
+                                <li><a class="page-scroll" th:href="@{/}">Features</a></li>
+                                <li><a class="page-scroll" th:href="@{/}">Pricing</a></li>
+                                <li><a class="page-scroll" th:href="@{/}">Faq</a></li>
+                                <li><a class="page-scroll" th:href="@{/}">News</a></li>
+                                <li><a class="page-scroll" th:href="@{/}">Contact</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--end navbar-->
+        </header>
+        <!--end header section-->
+
+        <!--start breadcrumb section-->
+        <section class="breadcrumb-section" style="background: url('img/download-bg.jpg')no-repeat center center fixed">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="text-center breadcrumb-content">
+                            <h2>All Of Contacts</h2>
+                            <ul class="breadcrumb">
+                                <li><a th:href="@{/}">Home</a></li>
+                                <li>Contacts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--end breadcrumb section-->
+
+        <div class="container mt-4">
+            <div class="row">
+                <h1>List Contacts</h1>
+            </div>
+        
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Company</th>
+                        <th>Message</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="contact : ${contact}">
+                        <td th:text="${contact.name}"></td>
+                        <td th:text="${contact.email}"></td>
+                        <td th:text="${contact.mobile}"></td>
+                        <td th:text="${contact.company}"></td>
+                        <td th:text="${contact.message}"></td>
+                        <td th:text="${contact.datestamp}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        
+        </div>
+
+        <!--start footer section-->
+        <footer class="footer-section ptb-60">
+            <div class="footer-wrap">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="footer-single-col text-center">
+                                <img src="img/logo-color.png" alt="footer logo">
+                                <div class="footer-social-list">
+                                    <ul class="list-inline">
+                                        <li><a href="#"> <i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"> <i class="fa fa-youtube"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="copyright-text">
+                                    <p>&copy; copyright <a href="#">ApeTech</a> Software Template By <a
+                                            href="https://themeforest.net/user/htmllover/portfolio" target="_blank">HtmlLover</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--end footer section-->
+
+    </div><!--end main content inner-->
+</div>
+<!--end main container -->
+
+
+<!--=========== all js file link ==============-->
+
+<!-- main jQuery -->
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+
+<!-- bootstrap core js -->
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+<!-- smothscroll -->
+<script th:src="@{/js/jquery.easeScroll.min.js}"></script>
+
+<!--owl carousel-->
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+
+<!-- scrolling nav -->
+<script th:src="@{/js/jquery.easing.min.js}"></script>
+
+<!--fullscreen background video js-->
+<script th:src="@{/js/jquery.mb.ytplayer.min.js}"></script>
+
+<!--typed js -->
+<script th:src="@{/static/js/typed.min.js}"></script>
+
+<!--magnific popup js-->
+<script th:src="@{/js/magnific-popup.min.js}"></script>
+
+<!-- custom script -->
+<script th:src="@{/js/scripts.js}"></script>
+<script th:src="@{/js/vendor/login.js}"></script>
+
+</body>
+</html>
