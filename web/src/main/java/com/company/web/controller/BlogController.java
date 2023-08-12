@@ -78,6 +78,11 @@ public class BlogController {
 		blogService.addBlog(blog);
 		return ResponseEntity.ok(blog);
 	}
+	@PostMapping("/post-blog")
+	public ResponseEntity<Blog> postBlog(@RequestBody Blog blog) {
+		blogService.addBlog(blog);
+		return ResponseEntity.ok(blog);
+	}
 	@RequestMapping(path = "/login-blog", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public String blogLogin(Model model, User user, HttpSession session) {
 		
