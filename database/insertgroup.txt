@@ -1,0 +1,2 @@
+INSERT INTO `mydb`.`group` (`gr_id`, `gr_name`, `gr_description`) VALUES ('1', 'users', 'normal users');
+INSERT INTO `mydb`.`group` (`gr_id`, `gr_name`, `gr_description`) VALUES ('2', 'admin', 'manager');

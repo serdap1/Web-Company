@@ -1,0 +1,8 @@
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('1', 'An', 'anv@gmail.com', 'Thanks for the very helpful post !!', '1', '2023-08-06');
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('2', 'An', 'anv@gmail.com', 'Thanks for the very helpful post !!', '2', '2023-08-06');
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('3', 'An', 'anv@gmail.com', 'Thanks for the very helpful post !!', '3', '2023-08-06');
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('4', 'An', 'anv@gmail.com', 'Thanks for the very helpful post !!', '4', '2023-08-06');
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('5', 'Đạt', 'lsd@gmail.com', 'Very useful, thanks !!', '1', '2023-08-07');
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('6', 'Đạt', 'lsd@gmail.com', 'Very useful, thanks !!', '2', '2023-08-07');
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('7', 'Đạt', 'lsd@gmail.com', 'Very useful, thanks !!', '3', '2023-08-07');
+INSERT INTO `mydb`.`comment` (`id`, `name`, `email`, `message`, `blog_id`, `datestamp`) VALUES ('8', 'Đạt', 'lsd@gmail.com', 'Very useful, thanks !!', '4', '2023-08-07');

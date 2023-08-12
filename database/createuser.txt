@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+  `ur_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `ur_username` VARCHAR(60) NOT NULL,
+  `ur_password` VARCHAR(120) NOT NULL,
+  `ur_email` VARCHAR(45) NULL,
+  `ur_address` VARCHAR(120) NULL,
+  `ur_created_date` DATETIME NULL,
+  `ur_status` TINYINT NULL,
+  `ur_mobile` VARCHAR(10) NULL,
+  `gr_id` INT UNSIGNED NOT NULL,
+  PRIMARY KEY (`ur_id`),
+  UNIQUE INDEX `ur_id_UNIQUE` (`ur_id` ASC) VISIBLE,
+  INDEX `fk_user_group1_idx` (`gr_id` ASC) VISIBLE,
+  CONSTRAINT `fk_user_group1`
+    FOREIGN KEY (`gr_id`)
+    REFERENCES `mydb`.`group` (`gr_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;

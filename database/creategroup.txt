@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS `mydb`.`group` (
+  `gr_id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `gr_name` VARCHAR(45) NOT NULL,
+  `gr_description` VARCHAR(150) NOT NULL,
+  PRIMARY KEY (`gr_id`),
+  UNIQUE INDEX `gr_id_UNIQUE` (`gr_id` ASC) VISIBLE)
+ENGINE = InnoDB;
