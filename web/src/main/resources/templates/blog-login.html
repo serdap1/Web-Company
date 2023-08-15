@@ -142,7 +142,7 @@
                             <div class="single-blog-article mb-30">
                                 <div class="blog-post-img-thumb">
                                     <a th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank">
-                                        <img th:src="@{img/IT.jpg}" th:alt="${post.title}">
+                                        <img th:src="${post.image}" th:alt="${post.title}">
                                     </a>
                                 </div>
                                 <div class="blog-post-content-area">

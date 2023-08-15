@@ -88,16 +88,18 @@ public class BlogController {
 		}
 	}
 
-	/*
-	 * @PostMapping("/post-blog") public ResponseEntity<String>
-	 * postBlog(@RequestPart("data") Blog blog,
-	 * 
-	 * @RequestPart("file") MultipartFile file) throws IOException { if
-	 * (blog.getAuthor() != null && blog.getTitle() != null && blog.getDetail() !=
-	 * null && blog.getShort_detail() != null) { blogService.addBlog(blog, file);
-	 * return ResponseEntity.ok().body("post successfully"); } else { return
-	 * ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); } }
-	 */
+	@PostMapping("/post-blog-img")
+	public ResponseEntity<String> postBlog(@RequestPart("data") Blog blog,
+
+			@RequestPart("file") MultipartFile file) throws IOException {
+		if (blog.getAuthor() != null && blog.getTitle() != null && blog.getDetail() != null
+				&& blog.getShort_detail() != null) {
+			blogService.addBlog(blog, file);
+			return ResponseEntity.ok().body("post successfully");
+		} else {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+		}
+	}
 
 	@RequestMapping(path = "/login-blog", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public String blogLogin(Model model, User user, HttpSession session) {

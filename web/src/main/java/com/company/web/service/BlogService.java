@@ -30,19 +30,18 @@ public class BlogService {
 		Optional<Blog> optionalBlog = blogRepository.findById(id);
 		return optionalBlog.orElse(null);
 	}
-	
+
 	public void addBlog(Blog blog) {
 		blogRepository.save(blog);
-		
+
 	}
 
-	/*
-	 * public void addBlog(Blog blog, MultipartFile file) throws IOException {
-	 * String filePath = "img/" + file.getOriginalFilename();
-	 * blogRepository.save(Blog.builder().author(blog.getAuthor()).detail(blog.
-	 * getDetail())
-	 * .short_detail(blog.getShort_detail()).title(blog.getTitle()).image(filePath).
-	 * build()); file.transferTo(new File(folder + file.getOriginalFilename()));
-	 * System.out.println("post successfully"); }
-	 */
+	public void addBlog(Blog blog, MultipartFile file) throws IOException {
+		String filePath = "img/" + file.getOriginalFilename();
+		blogRepository.save(Blog.builder().author(blog.getAuthor()).detail(blog.getDetail())
+				.short_detail(blog.getShort_detail()).title(blog.getTitle()).image(filePath).build());
+		file.transferTo(new File(folder + file.getOriginalFilename()));
+		System.out.println("post successfully");
+	}
+
 }
