@@ -2,52 +2,56 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--title-->
-    <title>intX, jsc#blog-detail</title>
+	<!--title-->
+	<title>intX, jsc#blog-detail</title>
 
-    <!--favicon icon-->
-    <link rel="icon" th:href="@{/img/favicon.png}" type="image/png" sizes="16x16">
+	<!--favicon icon-->
+	<link rel="icon" th:href="@{/img/favicon.png}" type="image/png" sizes="16x16">
 
-    <!-- font-awesome css -->
-    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+	<!-- font-awesome css -->
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
 
-    <!--themify icon-->
-    <link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+	<!--themify icon-->
+	<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
 
-    <!-- magnific popup css-->
-    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+	<!-- magnific popup css-->
+	<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
 
-    <!--owl carousel -->
-    <link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet">
-    <link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet">
+	<!--owl carousel -->
+	<link th:href="@{/css/owl.theme.default.min.css}" rel="stylesheet">
+	<link th:href="@{/css/owl.carousel.min.css}" rel="stylesheet">
 
-    <style>
-        /* CSS style for comment items */
-        .comment-item {
-            display: block;
-            margin-bottom: 10px;
-        }
-        /* Add other CSS styles here */
-    </style>
+	<style>
+		/* CSS style for comment items */
+		.comment-item {
+			display: block;
+			margin-bottom: 10px;
+		}
 
-    <!-- bootstrap core css -->
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+		/* Add other CSS styles here */
+	</style>
 
-    <!-- custom css -->
-    <link th:href="@{/css/style.css}" rel="stylesheet">
 
-    <!-- responsive css -->
-    <link th:href="@{/css/responsive.css}" rel="stylesheet">
 
-    <script th:src="@{/js/vendor/modernizr-2.8.1.min.js}"></script>
 
-    <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+	<!-- bootstrap core css -->
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+	<!-- custom css -->
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+
+	<!-- responsive css -->
+	<link th:href="@{/css/responsive.css}" rel="stylesheet">
+
+	<script th:src="@{/js/vendor/modernizr-2.8.1.min.js}"></script>
+
+	<!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
     <script src="js/vendor/html5shim.js"></script>
     <script src="js/vendor/respond.min.js"></script>
     <![endif]-->
@@ -57,260 +61,272 @@
 
 <body>
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div id="loader"></div>
-    </div>
-    <!--end preloader-->
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="loader"></div>
+	</div>
+	<!--end preloader-->
 
-    <div id="main" class="main-content-wraper">
-        <div class="main-content-inner">
+	<div id="main" class="main-content-wraper">
+		<div class="main-content-inner">
 
-            <!--start header section-->
-            <header class="header">
-                <!--start navbar-->
-                <div class="navbar navbar-default navbar-fixed-top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="navbar-header page-scroll">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                    data-target="#myNavbar">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand page-scroll" th:href="@{/}">
-                                    <img th:src="@{/img/logo-mau-trang.png}" alt="logo" style="width: 100px; height: 50px;">
-                                </a>
-                            </div>
+			<!--start header section-->
+			<header class="header">
+				<!--start navbar-->
+				<div class="navbar navbar-default navbar-fixed-top">
+					<div class="container">
+						<div class="row">
+							<div class="navbar-header page-scroll">
+								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+									data-target="#myNavbar">
+									<span class="sr-only">Toggle navigation</span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+									<span class="icon-bar"></span>
+								</button>
+								<a class="navbar-brand page-scroll" th:href="@{/}">
+									<img th:src="@{/img/logo-mau-trang.png}" alt="logo"
+										style="width: 100px; height: 50px;">
+								</a>
+							</div>
 
-                            <!-- Collect the nav links, forms, and other content for toggling -->
-                            <div class="navbar-collapse collapse" id="myNavbar">
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li class="active"><a class="page-scroll" th:href="@{/}">Home</a></li>
-                                    <li><a class="page-scroll" th:href="@{/#features}">Features</a></li>
-                                    <li><a class="page-scroll" th:href="@{/}">Pricing</a></li>
-                                    <li><a class="page-scroll" th:href="@{/}">Faq</a></li>
-                                    <li><a class="page-scroll" th:href="@{/}">News</a></li>
-                                    <li><a class="page-scroll" th:href="@{/}">Contact</a></li>
-                                </ul>
-                            </div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="navbar-collapse collapse" id="myNavbar">
+								<ul class="nav navbar-nav navbar-right">
+									<li class="active"><a class="page-scroll" th:href="@{/}">Home</a></li>
+									<li><a class="page-scroll" th:href="@{/#features}">Features</a></li>
+									<li><a class="page-scroll" th:href="@{/}">Pricing</a></li>
+									<li><a class="page-scroll" th:href="@{/}">Faq</a></li>
+									<li><a class="page-scroll" th:href="@{/}">News</a></li>
+									<li><a class="page-scroll" th:href="@{/}">Contact</a></li>
+								</ul>
+							</div>
 
-                        </div>
-                    </div>
-                </div>
-                <!--end navbar-->
-            </header>
-            <!--end header section-->
+						</div>
+					</div>
+				</div>
+				<!--end navbar-->
+			</header>
+			<!--end header section-->
 
-            <!--start breadcrumb section-->
-            <section class="breadcrumb-section"
-                style="background: url('img/download-bg.jpg')no-repeat center center fixed">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="text-center breadcrumb-content">
-                                <h2>Blog Details</h2>
-                                <p>Unveiling Tomorrow's Innovation Today.</p>
-                                <ul class="breadcrumb">
-                                    <li><a th:href="@{/}">Home</a></li>
-                                    <li>Blog Details</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--end breadcrumb section-->
+			<!--start breadcrumb section-->
+			<section class="breadcrumb-section"
+				style="background: url('img/download-bg.jpg')no-repeat center center fixed">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="text-center breadcrumb-content">
+								<h2>Blog Details</h2>
+								<p>Unveiling Tomorrow's Innovation Today.</p>
+								<ul class="breadcrumb">
+									<li><a th:href="@{/}">Home</a></li>
+									<li>Blog Details</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end breadcrumb section-->
 
-            <!--start blog single section-->
-            <section class="blog-details-area bg-secondary ptb-60">
-                <div class="blog-details-area-wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2" th:each="post: ${blog}">
-                                <div class="blog-single-content-wrap">
-                                    <div class="blog-single-img">
-                                        <img th:src="@{/img/IT.jpg}" alt="Blog single image" class="img-responsive">
-                                    </div>
-                                    <h1 th:text="${post.title}"></h1>
-                                    <div class="blog-details-post-meta">Posted <span th:text="${post.datestamp}"></span>
-                                        <p th:text="${post.author}"></p>
-                                    </div>
-                                    <div class="blog-details-text">
+			<!--start blog single section-->
+			<section class="blog-details-area bg-secondary ptb-60">
+				<div class="blog-details-area-wrap">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2" th:each="post: ${blog}">
+								<div class="blog-single-content-wrap">
+									<div class="blog-single-img">
+										<img th:src="@{/img/IT.jpg}" alt="Blog single image" class="img-responsive">
+									</div>
+									<h1 th:text="${post.title}"></h1>
+									<div class="blog-details-post-meta">Posted <span th:text="${post.postDate}"></span>
+										<p th:text="${post.author}"></p>
+									</div>
+									<div class="blog-details-text">
+										<p class="wrapped-text" th:text="${post.detail}">Description</p>
+									</div>
 
-                                        <p th:text="${post.detail}">Description</p>
-                                        
-
-                                    </div>
-                                    <div class="row">
-                                        <!--start comments section-->
-                                        <div class="col-sm-12">
-                                            <h3 class="blog-details-subtitle">Post Comments</h3>
-                                            <ul class="blog-comments">
-                                                <div th:each="comment: ${comment}">
-                                                <li>
-                                                    <img th:src="@{/img/t2.jpg}" alt="">
-                                                    <div class="blog-comment-author">
-                                                        <h6 th:text="${comment.name}"></h6>
-                                                        <span th:text="${comment.datestamp}"></span>
-                                                        <p th:text="${comment.message}"></p>
-                                                    </div>
-                                                </li>
-                                            </div>
-                                            </ul>
-                                        </div>
-                                        <!--end comments section-->
-
-                                        <!--start comment form-->
-                                        <form id="commentForm" class="col-md-12 comment-form send-message">
-                                            <h3 class="blog-details-subtitle">Leave a Reply</h3>
-                                            <div class="row">
-                                                <!--Name-->
-                                                <div class="col-md-6">
-                                                    <input class="comment-input-field" type="text" placeholder="Name"
-                                                        required>
-                                                </div>
-                                                <!--Email-->
-                                                <div class="col-md-6">
-                                                    <input class="comment-input-field" type="text" placeholder="Email"
-                                                        required>
-                                                </div>
-                                                <!--Message-->
-                                                <div class="col-md-12">
-                                                    <textarea name="comment-message" placeholder="Message" required
-                                                        rows="5"></textarea>
-                                                </div>
-                                            </div>
-                                            <input class="btn softo-solid-btn" type="submit" value="Send"
-                                                onclick="submitForm(event)">
-                                        </form>
-                                        <!--end comment form-->
-
-                                        <script>
-                                            async function submitForm(event) {
-                                                // Get the form elements
-                                                var nameInput = document.querySelector('#commentForm input[placeholder="Name"]');
-                                                var emailInput = document.querySelector('#commentForm input[placeholder="Email"]');
-                                                var messageInput = document.querySelector('#commentForm textarea[name="comment-message"]');
-                                                let d = Date();
-                                                const blogId = window.location.pathname.split('/').pop(); // Lấy phần tử cuối cùng của đường dẫn (chứa blogId)
-
-                                                const data = {
-                                                    name: nameInput.value,
-                                                    email: emailInput.value,
-                                                    message: messageInput.value,
-                                                    timestamp: d, // Thêm trường thời gian thực vào đối tượng JSON
-                                                    blogId: blogId
-                                                };
-
-                                                console.log(data);
-
-                                                try {
-                                                    // Make an asynchronous HTTP POST request to the server
-                                                    const response = await fetch('/blog/{id}/comments', {
-                                                        method: 'POST',
-                                                        headers: {
-                                                            'Content-Type': 'application/json'
-                                                        },
-                                                        body: JSON.stringify({
-                                                            name: nameInput.value,
-                                                            email: emailInput.value,
-                                                            message: messageInput.value,
-                                                            timestamp: d,
-                                                            blogId: blogId
-                                                        })
-                                                    });
-
-                                                    if (nameInput.value.trim() !== '' && emailInput.value.trim() !== '' && messageInput.value.trim() !== '') {
-                                                        if (response.ok) {
-                                                            // Check if all fields are filled
-                                                            // Show the "Comment successful" alert
-                                                            alert("Comment successful");
-                                                        } else {
-                                                            throw new Error('Sending message failed. Please try again.');
-                                                        }
-                                                    } else {
-                                                        // Show an alert asking the user to fill in all the fields
-                                                        alert("Please fill in all the fields.");
-                                                        // Prevent the form submission
-                                                        event.preventDefault();
-                                                    }
-                                                } catch (error) {
-                                                    // Show an error alert if something goes wrong with the request
-                                                    alert(error.message);
-                                                }
-                                            }
-                                        </script>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--end blog single section-->
-
-            <!--start footer section-->
-            <footer class="footer-section ptb-60">
-                <div class="footer-wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="footer-single-col text-center">
-                                    <img th:src="@{/img/logo-mau-tim-than.png}" alt="footer logo">
-                                    <div class="footer-social-list">
-                                        <ul class="list-inline">
-                                            <li><a href="https://www.facebook.com/intXVietNam"> <i class="fa fa-facebook"></i></a></li>
-                                            <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
-                                            <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
-                                            <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
-                                            <li><a href="#"> <i class="fa fa-youtube"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-            <!--end footer section-->
-
-        </div><!--end main content inner-->
-    </div>
-    <!--end main container -->
+									<style>
+										.blog-details-text {
+											max-width: 100%;
+											/* Adjust as needed */
+											overflow-wrap: break-word;
+											word-wrap: break-word;
+											white-space: pre-line;
+											/* Preserves line breaks */
+										}
+									</style>
 
 
-    <!--=========== all js file link ==============-->
+									<div class="row">
+										<!--start comments section-->
+										<div class="col-sm-12">
+											<h3 class="blog-details-subtitle">Post Comments</h3>
+											<ul class="blog-comments">
+												<div th:each="comment: ${comment}">
+													<li>
+														<img th:src="@{/img/t2.jpg}" alt="">
+														<div class="blog-comment-author">
+															<h6 th:text="${comment.name}"></h6>
+															<span th:text="${comment.datestamp}"></span>
+															<p th:text="${comment.message}"></p>
+														</div>
+													</li>
+												</div>
+											</ul>
+										</div>
+										<!--end comments section-->
 
-    <!-- main jQuery -->
-    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+										<!--start comment form-->
+										<form id="commentForm" class="col-md-12 comment-form send-message">
+											<h3 class="blog-details-subtitle">Leave a Reply</h3>
+											<div class="row">
+												<!--Name-->
+												<div class="col-md-6">
+													<input class="comment-input-field" type="text" placeholder="Name"
+														required>
+												</div>
+												<!--Email-->
+												<div class="col-md-6">
+													<input class="comment-input-field" type="text" placeholder="Email"
+														required>
+												</div>
+												<!--Message-->
+												<div class="col-md-12">
+													<textarea name="comment-message" placeholder="Message" required
+														rows="5"></textarea>
+												</div>
+											</div>
+											<input class="btn softo-solid-btn" type="submit" value="Send"
+												onclick="submitForm(event)">
+										</form>
+										<!--end comment form-->
 
-    <!-- bootstrap core js -->
-    <script th:src="@{/js/bootstrap.min.js}"></script>
+										<script>
+											async function submitForm(event) {
+												// Get the form elements
+												var nameInput = document.querySelector('#commentForm input[placeholder="Name"]');
+												var emailInput = document.querySelector('#commentForm input[placeholder="Email"]');
+												var messageInput = document.querySelector('#commentForm textarea[name="comment-message"]');
+												let d = Date();
+												const blogId = window.location.pathname.split('/').pop(); // Lấy phần tử cuối cùng của đường dẫn (chứa blogId)
 
-    <!-- smothscroll -->
-    <script th:src="@{/js/jquery.easeScroll.min.js}"></script>
+												const data = {
+													name: nameInput.value,
+													email: emailInput.value,
+													message: messageInput.value,
+													timestamp: d, // Thêm trường thời gian thực vào đối tượng JSON
+													blogId: blogId
+												};
 
-    <!--owl carousel-->
-    <script th:src="@{/js/owl.carousel.min.js}"></script>
+												console.log(data);
 
-    <!-- scrolling nav -->
-    <script th:src="@{/js/jquery.easing.min.js}"></script>
+												try {
+													// Make an asynchronous HTTP POST request to the server
+													const response = await fetch('/blog/{id}/comments', {
+														method: 'POST',
+														headers: {
+															'Content-Type': 'application/json'
+														},
+														body: JSON.stringify({
+															name: nameInput.value,
+															email: emailInput.value,
+															message: messageInput.value,
+															timestamp: d,
+															blogId: blogId
+														})
+													});
 
-    <!--fullscreen background video js-->
-    <script th:src="@{/js/jquery.mb.ytplayer.min.js}"></script>
+													if (nameInput.value.trim() !== '' && emailInput.value.trim() !== '' && messageInput.value.trim() !== '') {
+														if (response.ok) {
+															// Check if all fields are filled
+															// Show the "Comment successful" alert
+															alert("Comment successful");
+														} else {
+															throw new Error('Sending message failed. Please try again.');
+														}
+													} else {
+														// Show an alert asking the user to fill in all the fields
+														alert("Please fill in all the fields.");
+														// Prevent the form submission
+														event.preventDefault();
+													}
+												} catch (error) {
+													// Show an error alert if something goes wrong with the request
+													alert(error.message);
+												}
+											}
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--end blog single section-->
 
-    <!--typed js -->
-    <script th:src="@{/static/js/typed.min.js}"></script>
+			<!--start footer section-->
+			<footer class="footer-section ptb-60">
+				<div class="footer-wrap">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+								<div class="footer-single-col text-center">
+									<img th:src="@{/img/logo-mau-tim-than.png}" alt="footer logo">
+									<div class="footer-social-list">
+										<ul class="list-inline">
+											<li><a href="https://www.facebook.com/intXVietNam"> <i
+														class="fa fa-facebook"></i></a></li>
+											<li><a href="#"> <i class="fa fa-twitter"></i></a></li>
+											<li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
+											<li><a href="#"> <i class="fa fa-google-plus"></i></a></li>
+											<li><a href="#"> <i class="fa fa-youtube"></i></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!--end footer section-->
 
-    <!--magnific popup js-->
-    <script th:src="@{/js/magnific-popup.min.js}"></script>
+		</div><!--end main content inner-->
+	</div>
+	<!--end main container -->
 
-    <!-- custom script -->
-    <script th:src="@{/js/scripts.js}"></script>
-    <script th:src="@{/js/vendor/login.js}"></script>
+
+	<!--=========== all js file link ==============-->
+
+	<!-- main jQuery -->
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+
+	<!-- bootstrap core js -->
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+
+	<!-- smothscroll -->
+	<script th:src="@{/js/jquery.easeScroll.min.js}"></script>
+
+	<!--owl carousel-->
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+
+	<!-- scrolling nav -->
+	<script th:src="@{/js/jquery.easing.min.js}"></script>
+
+	<!--fullscreen background video js-->
+	<script th:src="@{/js/jquery.mb.ytplayer.min.js}"></script>
+
+	<!--typed js -->
+	<script th:src="@{/static/js/typed.min.js}"></script>
+
+	<!--magnific popup js-->
+	<script th:src="@{/js/magnific-popup.min.js}"></script>
+
+	<!-- custom script -->
+	<script th:src="@{/js/scripts.js}"></script>
+	<script th:src="@{/js/vendor/login.js}"></script>
 </body>
 
 </html>

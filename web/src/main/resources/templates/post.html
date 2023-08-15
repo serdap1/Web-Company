@@ -31,6 +31,7 @@
             display: block;
             margin-bottom: 10px;
         }
+
         /* Add other CSS styles here */
     </style>
 
@@ -81,7 +82,8 @@
                                     <span class="icon-bar"></span>
                                 </button>
                                 <a class="navbar-brand page-scroll" th:href="@{/}">
-                                    <img th:src="@{/img/logo-mau-trang.png}" alt="logo" style="width: 120px; height: auto;">
+                                    <img th:src="@{/img/logo-mau-trang.png}" alt="logo"
+                                        style="width: 120px; height: auto;">
                                 </a>
                             </div>
 
@@ -126,30 +128,73 @@
             <!--start blog single section-->
             <section class="blog-details-area bg-secondary ptb-60">
                 <div class="blog-details-area-wrap">
-                  <div class="container">
-                    <div class="card">
-                      <div class="mb-1">
-                        <label for="title" class="form-label">Who are you?</label>
-                        <input class="form-control" type="text" id="title">
-                      </div>
-                      <div class="mb-3">
-                        <label for="title" class="form-label">Title</label>
-                        <input class="form-control" type="text" id="title">
-                      </div>
-                      <div class="mb-3">
-                        <label for="status" class="form-label">Short Description</label>
-                        <textarea class="form-control" id="status" rows="3"></textarea>
-                      </div>
-                      <div class="mb-3">
-                        <label for="status" class="form-label">Say Something</label>
-                        <textarea class="form-control" id="status" rows="3"></textarea>
-                      </div>
-                      <button class="btn btn-danger" style="background-color: blueviolet;" onclick="addPost()">Post</button>
+                    <div class="container">
+                        <div class="card">
+                            <div class="mb-1">
+                                <label for="author" class="form-label">Who are you?</label>
+                                <input class="form-control" type="text" id="author">
+                            </div>
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input class="form-control" type="text" id="title">
+                            </div>
+                            <div class="mb-3">
+                                <label for="shortDes" class="form-label">Short Description</label>
+                                <textarea class="form-control" id="shortDes" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Say Something</label>
+                                <textarea class="form-control" id="status" rows="3"></textarea>
+                            </div>
+                            <button class="btn btn-danger" style="background-color: blueviolet;"
+                                onclick="addPost()">Post</button>
+                        </div>
+                        <div id="posts-container" class="mt-4">
+                            <!-- Posts will be added here dynamically -->
+                        </div>
                     </div>
-                    <div id="posts-container" class="mt-4">
-                      <!-- Posts will be added here dynamically -->
-                    </div>
-                </div>
+                    <script>
+                        async function addPost() {
+                            // Get the input values
+                            var authorInput = document.getElementById("author");
+                            var titleInput = document.getElementById("title");
+                            var shortDesInput = document.getElementById("shortDes");
+                            var statusInput = document.getElementById("status");
+                            let d = Date();
+
+                            const data = {
+                                author: authorInput.value,
+                                title: titleInput.value,
+                                short_detail: shortDesInput.value,
+                                detail: statusInput.value,
+                                timestamp: d // Thêm trường thời gian thực vào đối tượng JSON
+                            };
+                            console.log(data);
+
+                            try {
+                                const response = await fetch('/post-blog', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        author: authorInput.value,
+                                        title: titleInput.value,
+                                        short_detail: shortDesInput.value,
+                                        detail: statusInput.value,
+                                    })
+                                });
+
+                                if (response.ok) {
+                                    alert("Your status has been posted");
+                                } else {
+                                    throw new Error('Post failed. Please try again.');
+                                }
+                            } catch (error) {
+                                alert(error.message);
+                            }
+                        }
+                    </script>
             </section>
             <!--end blog single section-->
 
@@ -163,7 +208,8 @@
                                     <img th:src="@{/img/logo-mau-tim-than.png}" alt="footer logo">
                                     <div class="footer-social-list">
                                         <ul class="list-inline">
-                                            <li><a href="https://www.facebook.com/intXVietNam"> <i class="fa fa-facebook"></i></a></li>
+                                            <li><a href="https://www.facebook.com/intXVietNam"> <i
+                                                        class="fa fa-facebook"></i></a></li>
                                             <li><a href="#"> <i class="fa fa-twitter"></i></a></li>
                                             <li><a href="#"> <i class="fa fa-linkedin"></i></a></li>
                                             <li><a href="#"> <i class="fa fa-google-plus"></i></a></li>

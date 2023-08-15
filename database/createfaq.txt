@@ -1,0 +1,6 @@
+CREATE TABLE `mydb`.`faq` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `question` VARCHAR(45) NOT NULL,
+  `answer` TEXT NOT NULL,
+  `created_date` DATETIME NULL,
+  PRIMARY KEY (`id`));

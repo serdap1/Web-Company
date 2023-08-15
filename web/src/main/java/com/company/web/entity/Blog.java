@@ -13,6 +13,7 @@ import jakarta.persistence.Lob;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
+@Builder
 @Table(name = "blog")
 public class Blog {
     @Id
@@ -34,11 +36,14 @@ public class Blog {
     private String title;
 
     @Column(name = "post_date")
-    private LocalDate postDate;
+    private String postDate;
 
     @Column(name = "author")
     private String author;
 
+    @Column(name = "image", columnDefinition = "MEDIUMBLOB")
+    private String image;
+    
     @Lob
     @Column(name = "detail", columnDefinition = "TEXT")
     private String detail;
@@ -47,15 +52,12 @@ public class Blog {
     @Column(name = "short_detail", columnDefinition = "TEXT")
     private String short_detail;
 
-    @Column(name = "datestamp")
-    private String datestamp;
-
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     @PrePersist
     public void prePersist() {
         // Set the current date as the datestamp before persisting the entity
-        this.datestamp = LocalDateTime.now().format(DATE_TIME_FORMATTER);
+        this.postDate = LocalDateTime.now().format(DATE_TIME_FORMATTER);
     }
 
 }

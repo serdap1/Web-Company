@@ -137,7 +137,10 @@ function updateUIAfterLogin(user) {
   formOpenBtn.style.display = "none";
   updateButtonLinks(true);
   
-  showContactPage();
+  if(user.gr_id == 1) {
+    document.getElementById("admin-content").style.display = "block"; // Show admin content
+    showContactPage();
+  }
   // Store the login state in Local Storage
   localStorage.setItem("loggedInUser", JSON.stringify(user));
 }
@@ -157,8 +160,22 @@ signupForm.addEventListener('submit', async (event) => {
   
   const usernameInput = signupForm.querySelector('input[name="username"]');
   const emailInput = signupForm.querySelector('input[name="email"]');
+  const phoneInput = signupForm.querySelector('input[name="mobile"]');
+  const addressInput = signupForm.querySelector('input[name="address"]');
   const passwordInput = signupForm.querySelector('input[name="password"]');
+  let d = Date();
 
+  const data = {
+    name: usernameInput.value,
+    email: emailInput.value,
+    mobile: phoneInput.value,
+    address: addressInput.value,
+    password: passwordInput.value,
+    timestamp: d // Thêm trường thời gian thực vào đối tượng JSON
+  };
+
+  console.log(data);
+  
   try {
     const response = await fetch('/api/register', {
       method: 'POST',
@@ -168,6 +185,8 @@ signupForm.addEventListener('submit', async (event) => {
       body: JSON.stringify({
         username: usernameInput.value,
         email: emailInput.value,
+        mobile: phoneInput.value,
+        address: addressInput.value,
         password: passwordInput.value
       })
     });
@@ -190,6 +209,8 @@ function updateUIAfterRegistration(user) {
 
 logoutBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  localStorage.removeItem("loggedInUser"); // Clear user's login state
+  document.getElementById("admin-content").style.display = "none"; // Hide admin content
   resetUIState();
 });
 
@@ -250,6 +271,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+
 
 
 

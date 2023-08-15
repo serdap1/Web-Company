@@ -6,40 +6,41 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.company.web.entity.User;
 import com.company.web.repository.UserRepository;
 import com.company.web.service.BlogService;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.company.web.service.FaqService;
 
 @Controller
 public class UserLoginController {
 
-    @Autowired(required = true)
-    private UserRepository userRepository;
+	@Autowired(required = true)
+	private UserRepository userRepository;
 
-    @Autowired
-    private BlogService blogService;
+	@Autowired
+	private BlogService blogService;
+	@Autowired
+	private FaqService faqService;
 
-    @GetMapping("")
-    public String login(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        model.addAttribute("blog", blogService.getLatestBlog());
-        return "index";
-    }
+	@GetMapping("")
+	public String login(Model model) {
+		User user = new User();
+		model.addAttribute("user", user);
+		model.addAttribute("blog", blogService.getLatestBlog());
+		model.addAttribute("faq", faqService.getAllFaq());
+		return "index";
+	}
 
-    @PostMapping("/api/login")
-    public ResponseEntity<User> login(@RequestBody User user) {
-        User userData = userRepository.findByEmail(user.getEmail());
-        if (userData != null && userData.getPassword().equals(user.getPassword())) {
-            return ResponseEntity.ok(userData);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-    }
+	@PostMapping("/api/login")
+	public ResponseEntity<User> login(@RequestBody User user) {
+		User userData = userRepository.findByEmail(user.getEmail());
+		if (userData != null && userData.getPassword().equals(user.getPassword())) {
+			return ResponseEntity.ok(userData);
+		} else {
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+		}
+	}
 }

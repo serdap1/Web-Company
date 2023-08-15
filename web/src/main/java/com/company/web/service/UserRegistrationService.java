@@ -9,10 +9,11 @@ import com.company.web.repository.UserRepository;
 @Service
 public class UserRegistrationService {
 
-    @Autowired
+	@Autowired
     private UserRepository userRepository;
 
     public void registerUser(User user) {
+        user.setGr_id(2);
         userRepository.save(user);
     }
 

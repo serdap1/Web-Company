@@ -93,9 +93,9 @@
                                 <li><a class="page-scroll" th:href="@{/}">Faq</a></li>
                                 <li><a class="page-scroll" th:href="@{/}">News</a></li>
                                 <li><a class="page-scroll" th:href="@{/}">Contact</a></li>
-                                <li id="user-info"></li>
+                                <li id="user-info"></li>                                
                                 <li id="logout" style="display: inline-block">
-                                    <a class="page-scroll" th:href="@{/blog}"
+                                    <a class="page-scroll" th:href="@{/blog}" onclick="logout()"
                                       >Logout</a
                                     >
                                   </li>
@@ -146,7 +146,7 @@
                                     </a>
                                 </div>
                                 <div class="blog-post-content-area">
-                                    <h3><a th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank" th:text="${post.title}">Title</a></h3>
+                                    <h3><a th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank" class="truncate" th:text="${post.title}">Title</a></h3>
                                     <p th:text="${post.short_detail}">Description</p>
                                     <div class="blog-footer-area">
                                         <a class="readmore-btn" th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank">Read
@@ -225,5 +225,12 @@
 <!-- custom script -->
 <script th:src="@{/js/scripts.js}"></script>
 <script th:src="@{/js/vendor/login.js}"></script>
+<script>
+    // Clear local storage when the page loads
+    function logout() {
+        // Clear local storage when the "Logout" link is clicked
+        localStorage.clear();
+    }
+</script>
 </body>
 </html>

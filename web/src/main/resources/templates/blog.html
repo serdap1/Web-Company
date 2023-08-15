@@ -190,11 +190,11 @@
                             <div class="single-blog-article mb-30">
                                 <div class="blog-post-img-thumb">
                                     <a th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank">
-                                        <img th:src="@{img/IT.jpg}" th:alt="${post.title}">
+                                        <img th:src="@{/img/cloud-768x450.jpg}" th:alt="${post.title}" class="img-responsive">
                                     </a>
                                 </div>
                                 <div class="blog-post-content-area">
-                                    <h3><a th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank" th:text="${post.title}">Title</a></h3>
+                                    <h3><a th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank" class="truncate" th:text="${post.title}">Title</a></h3>
                                     <p th:text="${post.short_detail}">Description</p>
                                     <div class="blog-footer-area">
                                         <a class="readmore-btn" th:href="@{/blog-details/{id}(id=${post.id})}" target="_blank">Read
