@@ -137,7 +137,7 @@
 							<div class="col-md-8 col-md-offset-2" th:each="post: ${blog}">
 								<div class="blog-single-content-wrap">
 									<div class="blog-single-img">
-										<img th:src="@{img/rsz_5566770_2896301.jpg}" alt="Blog single image" class="img-responsive">
+										<img th:src="${post.image}" alt="Blog single image" class="img-responsive">
 									</div>
 									<h1 th:text="${post.title}"></h1>
 									<div class="blog-details-post-meta">Posted <span th:text="${post.postDate}"></span>
@@ -183,15 +183,15 @@
 											<h3 class="blog-details-subtitle">Leave a Reply</h3>
 											<div class="row">
 												<!--Name-->
-												<div class="col-md-6">
+												<!--div class="col-md-6">
 													<input class="comment-input-field" type="text" placeholder="Name"
 														required>
 												</div>
-												<!--Email-->
+												Email
 												<div class="col-md-6">
 													<input class="comment-input-field" type="text" placeholder="Email"
 														required>
-												</div>
+												</div>-->
 												<!--Message-->
 												<div class="col-md-12">
 													<textarea name="comment-message" placeholder="Message" required
@@ -206,15 +206,13 @@
 										<script>
 											async function submitForm(event) {
 												// Get the form elements
-												var nameInput = document.querySelector('#commentForm input[placeholder="Name"]');
-												var emailInput = document.querySelector('#commentForm input[placeholder="Email"]');
+												
 												var messageInput = document.querySelector('#commentForm textarea[name="comment-message"]');
 												let d = Date();
 												const blogId = window.location.pathname.split('/').pop(); // Lấy phần tử cuối cùng của đường dẫn (chứa blogId)
 
 												const data = {
-													name: nameInput.value,
-													email: emailInput.value,
+													
 													message: messageInput.value,
 													timestamp: d, // Thêm trường thời gian thực vào đối tượng JSON
 													blogId: blogId
@@ -230,15 +228,14 @@
 															'Content-Type': 'application/json'
 														},
 														body: JSON.stringify({
-															name: nameInput.value,
-															email: emailInput.value,
+															
 															message: messageInput.value,
 															timestamp: d,
 															blogId: blogId
 														})
 													});
 
-													if (nameInput.value.trim() !== '' && emailInput.value.trim() !== '' && messageInput.value.trim() !== '') {
+													if (messageInput.value.trim() !== '') {
 														if (response.ok) {
 															// Check if all fields are filled
 															// Show the "Comment successful" alert

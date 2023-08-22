@@ -12,10 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -43,7 +41,6 @@ public class BlogController {
 
 	@GetMapping("/blog-login")
 	public String getAllBlogLogin(Model model) {
-
 		model.addAttribute("blog", blogService.getAllBlog());
 		return "blog-login";
 	}
@@ -77,30 +74,33 @@ public class BlogController {
 		return "post";
 	}
 
-	@PostMapping("/post-blog")
-	public ResponseEntity<Blog> postBlog(@RequestBody Blog blog) {
-		if (blog.getDetail() != null && blog.getAuthor() != null && blog.getTitle() != null
-				&& blog.getShort_detail() != null) {
-			blogService.addBlog(blog);
-			return ResponseEntity.ok(blog);
-		} else {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-		}
-	}
+	
+	/*
+	 * @PostMapping("/post-blog-img") public ResponseEntity<String>
+	 * postBlog(@RequestPart("data") Blog blog,
+	 * 
+	 * @RequestPart("file") MultipartFile file) throws IOException { if
+	 * (blog.getAuthor() != null && blog.getTitle() != null && blog.getDetail() !=
+	 * null && blog.getShort_detail() != null) { blogService.addBlog(blog, file);
+	 * return ResponseEntity.ok().body("post successfully"); } else { return
+	 * ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); } }
+	 */
 
 	@PostMapping("/post-blog-img")
 	public ResponseEntity<String> postBlog(@RequestPart("data") Blog blog,
 
-			@RequestPart("file") MultipartFile file) throws IOException {
-		if (blog.getAuthor() != null && blog.getTitle() != null && blog.getDetail() != null
+			@RequestPart("file") MultipartFile file, HttpSession session) throws IOException {
+		if (blog.getTitle() != null && blog.getDetail() != null
 				&& blog.getShort_detail() != null) {
+			User user = (User) session.getAttribute("user");
+			blog.setAuthor(user.getUsername());
 			blogService.addBlog(blog, file);
 			return ResponseEntity.ok().body("post successfully");
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 		}
 	}
-
+	
 	@RequestMapping(path = "/login-blog", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public String blogLogin(Model model, User user, HttpSession session) {
 

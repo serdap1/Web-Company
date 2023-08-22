@@ -28,27 +28,19 @@ public class ContactPerson {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer ur_id;
-
     @Column(name = "name")
     private String name;
-
     @Column(name = "email")
     private String email;
-
     @Column(name = "mobile")
     private String mobile;
-
     @Column(name = "company")
     private String company;
-
     @Column(name = "message")
     private String message;
-
     @Column(name = "datestamp")
     private String datestamp;
-
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-
     @Override
     public String toString() {
         return "{" +

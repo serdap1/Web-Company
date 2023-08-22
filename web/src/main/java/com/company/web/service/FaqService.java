@@ -14,7 +14,6 @@ public class FaqService {
 	FaqRepository faqRepository;
 
 	public List<Faq> getAllFaq() {
-
 		return faqRepository.findAll();
 	}
 

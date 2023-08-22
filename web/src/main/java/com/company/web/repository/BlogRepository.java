@@ -11,6 +11,5 @@ import com.company.web.entity.Blog;
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Integer> {
     Optional<Blog> findById(Integer id);
-
     List<Blog> findTop4ByOrderByPostDateDesc();
 }

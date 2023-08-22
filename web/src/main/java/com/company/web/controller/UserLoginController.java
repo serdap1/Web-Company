@@ -14,6 +14,8 @@ import com.company.web.repository.UserRepository;
 import com.company.web.service.BlogService;
 import com.company.web.service.FaqService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class UserLoginController {
 
@@ -26,21 +28,35 @@ public class UserLoginController {
 	private FaqService faqService;
 
 	@GetMapping("")
-	public String login(Model model) {
+	public String login(Model model, HttpSession session) {
 		User user = new User();
 		model.addAttribute("user", user);
 		model.addAttribute("blog", blogService.getLatestBlog());
 		model.addAttribute("faq", faqService.getAllFaq());
+		System.out.println(session.getAttribute("user"));
 		return "index";
 	}
 
+	/*
+	 * @PostMapping("/api/login") public ResponseEntity<User> login(@RequestBody
+	 * User user) { User userData = userRepository.findByEmail(user.getEmail()); if
+	 * (userData != null && userData.getPassword().equals(user.getPassword())) {
+	 * 
+	 * return ResponseEntity.ok(userData); } else { return
+	 * ResponseEntity.status(HttpStatus.UNAUTHORIZED).build(); } }
+	 */
 	@PostMapping("/api/login")
-	public ResponseEntity<User> login(@RequestBody User user) {
+	public ResponseEntity<User> login(@RequestBody User user, HttpSession session) {
 		User userData = userRepository.findByEmail(user.getEmail());
 		if (userData != null && userData.getPassword().equals(user.getPassword())) {
+			session.setAttribute("user", userData);
+			System.out.println("login" + session.getAttribute("user").toString());
 			return ResponseEntity.ok(userData);
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
 		}
+		
 	}
+	
+	
 }

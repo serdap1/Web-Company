@@ -130,26 +130,49 @@
 				<div class="blog-details-area-wrap">
 					<div class="container">
 						<div class="card">
-
+							<!--<div class="mb-1">
+								<label for="author" class="form-label">Who are you?</label>
+								<input class="form-control" type="text" id="author">
+							</div>
+							<div class="mb-3">
+								<label for="title" class="form-label">Title</label>
+								<input class="form-control" type="text" id="title">
+							</div>
+							<div class="mb-3">
+								<label for="shortDes" class="form-label">Short Description</label>
+								<textarea class="form-control" id="shortDes" rows="3"></textarea>
+							</div>
+							<div class="mb-3">
+								<label for="status" class="form-label">Say Something</label>
+								<textarea class="form-control" id="status" rows="3"></textarea>
+							</div>
+							<div class="mb-3">
+								<label for="image" class="form-label">Upload Image</label><br>
+								<input type="file" class="form-control" id="image">
+							</div>
+							<button class="btn btn-danger" style="background-color: blueviolet;"
+								onclick="addPost()">Post</button>-->
 
 							<form id="form">
-								
+								<div class="mb-1">
+									<label for="author" class="form-label">Who are you?</label>
+									<input class="form-control" type="text" id="author">
+								</div>
 								<div class="mb-3">
 									<label for="title" class="form-label">Title</label>
-									<input class="form-control" type="text" name="title" id="title">
+									<input class="form-control" type="text" id="title">
 								</div>
 								<div class="mb-3">
 									<label for="shortDes" class="form-label">Short Description</label>
-									<textarea class="form-control" name="short_detail" id="short_detail"
-										rows="3"></textarea>
+									<textarea class="form-control" id="shortDes" rows="3"></textarea>
 								</div>
 								<div class="mb-3">
 									<label for="status" class="form-label">Say Something</label>
-									<textarea class="form-control" name="detail" id="detail" rows="3"></textarea>
+									<textarea class="form-control" id="status" rows="3"></textarea>
 								</div>
 								<div class="mb-3">
 									<label for="image" class="form-label">Upload Image</label><br>
-									<input type="file" class="form-control" name="image" id="image">
+									<input type="file" class="form-control" id="image">
 								</div>
 
 								<button type="submit" class="btn btn-danger"
@@ -162,51 +185,38 @@
 						</div>
 					</div>
 					<script>
-
-
-						form.addEventListener('submit', function (e) {
-							e.preventDefault();
+						async function addPost() {
+							// Get the input values
 							const formData = new FormData();
-
-
-							var fileInput = document.querySelector('#image');
-
-							
+							var fileInput = document.getElementById('image');
+							var authorInput = document.getElementById("author");
 							var titleInput = document.getElementById("title");
-							var shortDesInput = document.getElementById("short_detail");
-							var statusInput = document.getElementById("detail");
+							var shortDesInput = document.getElementById("shortDes");
+							var statusInput = document.getElementById("status");
 							let d = Date();
 
-
-
 							const data = {
-								
+								author: authorInput.value,
 								title: titleInput.value,
 								short_detail: shortDesInput.value,
 								detail: statusInput.value,
 								timestamp: d // Thêm trường thời gian thực vào đối tượng JSON
 							};
-							const json = JSON.stringify(data);
-							const blob = new Blob([json], {
-								type: 'application/json'
-							});
-
-
-							var formdata = new FormData();
-							formdata.append("file", fileInput.files[0]);
-							formdata.append("data", blob);
-							console.log([...formdata]);
-							var requestOptions = {
-								method: 'POST',
-								body: formdata,
-								redirect: 'follow'
-							};
-
-							fetch("/post-blog-img", requestOptions);
-							alert("Your status has been posted");
-
-						});
-
+							formData.append("file", fileInput);
+							formData.append("data", JSON.stringify(data));
+							for (const value of formData.values()) {
+								console.log(value);
+							}
+							axios.post('/post-blog-img', formData)
+								.then(function (response) {
+									// Xử lý phản hồi từ máy chủ
+									console.log(response.data);
+								})
+								.catch(function (error) {
+									// Xử lý lỗi nếu có
+									console.error(error);
+								});
+						}
 					</script>
 			</section>
 			<!--end blog single section-->
