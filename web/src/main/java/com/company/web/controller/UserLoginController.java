@@ -28,14 +28,15 @@ public class UserLoginController {
 	private FaqService faqService;
 
 	@GetMapping("")
-	public String login(Model model, HttpSession session) {
+	public String login(Model model) {
 		User user = new User();
 		model.addAttribute("user", user);
 		model.addAttribute("blog", blogService.getLatestBlog());
 		model.addAttribute("faq", faqService.getAllFaq());
-		System.out.println(session.getAttribute("user"));
+		
 		return "index";
 	}
+	
 
 	/*
 	 * @PostMapping("/api/login") public ResponseEntity<User> login(@RequestBody
@@ -50,7 +51,6 @@ public class UserLoginController {
 		User userData = userRepository.findByEmail(user.getEmail());
 		if (userData != null && userData.getPassword().equals(user.getPassword())) {
 			session.setAttribute("user", userData);
-			System.out.println("login" + session.getAttribute("user").toString());
 			return ResponseEntity.ok(userData);
 		} else {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

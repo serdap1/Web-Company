@@ -10,18 +10,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @EqualsAndHashCode
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ur_id")
     private Integer ur_id;
 
     @Column(name = "ur_username")
@@ -55,8 +62,5 @@ public class User {
         // Set the current date as the datestamp before persisting the entity
         this.createdDate = LocalDateTime.now().format(DATE_TIME_FORMATTER);
     }
-    public User() {
-    	this.gr_id = 1;
-    	this.status = "activated";
-    }
+   
 }

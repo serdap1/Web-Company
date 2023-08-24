@@ -162,8 +162,6 @@
 						</div>
 					</div>
 					<script>
-
-
 						form.addEventListener('submit', function (e) {
 							e.preventDefault();
 							const formData = new FormData();
@@ -203,10 +201,9 @@
 							};
 
 							fetch("/post-blog-img", requestOptions);
-							alert("Your status has been posted");
-
+							alert("Your Blog Has Been Posted.");
+							window.location.href = "/blog-login";
 						});
-
 					</script>
 			</section>
 			<!--end blog single section-->

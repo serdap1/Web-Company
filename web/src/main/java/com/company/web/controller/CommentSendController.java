@@ -38,11 +38,8 @@ public class CommentSendController {
 	public ResponseEntity<CommentBlog> registerUser(@RequestBody CommentBlog commentBlog,
 			HttpSession session) {
 		if (commentBlog.getMessage() != null &&
-				 !commentBlog.getMessage().trim().isEmpty()) {
-			
-			System.out.println("comment");
+				 !commentBlog.getMessage().trim().isEmpty()) {	
 			User user = (User) session.getAttribute("user");
-			System.out.println(user.getUsername());
 			commentBlog.setName(user.getUsername());
 			commentBlog.setEmail(user.getEmail());
 			
