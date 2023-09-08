@@ -22,7 +22,7 @@ import lombok.Setter;
 @EqualsAndHashCode
 @Entity
 @Builder
-@NoArgsConstructor
+
 @AllArgsConstructor
 @Table(name = "user")
 public class User {
@@ -62,5 +62,11 @@ public class User {
         // Set the current date as the datestamp before persisting the entity
         this.createdDate = LocalDateTime.now().format(DATE_TIME_FORMATTER);
     }
+
+	public User() {
+		this.status = "activated";
+	}
+
+	
    
 }
