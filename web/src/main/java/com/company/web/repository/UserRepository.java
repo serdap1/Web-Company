@@ -9,5 +9,5 @@ import com.company.web.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 
     User findByEmail(String userEmail);
-     
+
 }

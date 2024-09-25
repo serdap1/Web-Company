@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.company.web.dto.UserDto;
 import com.company.web.entity.User;
 import com.company.web.repository.UserRepository;
 import com.company.web.service.UserManagementService;
@@ -43,14 +44,18 @@ public class UserManagementController {
 
 	@GetMapping("/admin/users/new")
 	public String newUser(Model model) {
+
 		User user = new User();
 		model.addAttribute("user", user);
 		return "create_user";
 	}
 
 	@PostMapping("/admin/users/new")
-	public ResponseEntity<User> saveUser(@RequestBody User user) {
-		if (userRegistrationService.isEmailAvailable(user.getEmail())) {
+	public ResponseEntity<User> saveUser(@RequestBody UserDto userDto) {
+		if (userRegistrationService.isEmailAvailable(userDto.getEmail())) {
+			User user = User.builder().email(userDto.getEmail()).password(userDto.getPassword())
+					.username(userDto.getUsername()).address(userDto.getAddress()).mobile(userDto.getMobile())
+					.status(userDto.getStatus()).gr_id(userDto.getGr_id()).build();
 			userRepository.save(user);
 			return ResponseEntity.ok(user);
 		} else {
